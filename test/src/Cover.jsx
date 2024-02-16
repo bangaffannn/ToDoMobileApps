@@ -1,6 +1,13 @@
 import React from "react";
 import { useState } from "react";
-import { View, StyleSheet, Text, Button, TextInput } from "react-native";
+import {
+  View,
+  StyleSheet,
+  Text,
+  Button,
+  TextInput,
+  ScrollView,
+} from "react-native";
 
 export default function Cover() {
   const [enteredGoalText, setEnteredGoalText] = useState("");
@@ -28,11 +35,13 @@ export default function Cover() {
         <Button title="Add Goal" onPress={addGoalHandler} />
       </View>
       <View style={styles.goalsContainer}>
-        {courseGoals.map((goal, index) => (
-          <View style={styles.goalItem} key={index}>
-            <Text style={styles.textColor}>{goal}</Text>
-          </View>
-        ))}
+        <ScrollView>
+          {courseGoals.map((goal, index) => (
+            <View style={styles.goalItem} key={index}>
+              <Text style={styles.textColor}>{goal}</Text>
+            </View>
+          ))}
+        </ScrollView>
       </View>
     </View>
   );
@@ -70,6 +79,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#5e0acc",
   },
   textColor: {
-    color: 'white',
+    color: "white",
   },
 });

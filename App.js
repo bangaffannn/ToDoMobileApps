@@ -1,11 +1,16 @@
 import { StatusBar } from "expo-status-bar";
-import { SafeAreaView, StyleSheet, Text, View, Button, TextInput } from "react-native";
+import {
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  View,
+  Button,
+  TextInput,
+} from "react-native";
 import Cover from "./test/src/Cover";
 
 export default function App() {
-  return (
-      <Cover />
-  );
+  return <Cover />;
 }
 
 const styles = StyleSheet.create({

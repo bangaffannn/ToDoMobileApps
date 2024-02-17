@@ -7,6 +7,7 @@ import {
   Button,
   TextInput,
   ScrollView,
+  FlatList,
 } from "react-native";
 
 export default function Cover() {
@@ -20,7 +21,8 @@ export default function Cover() {
   function addGoalHandler() {
     setCourseGoals((currentCourseGoals) => [
       ...currentCourseGoals,
-      enteredGoalText,
+      // enteredGoalText,
+      { text: enteredGoalText, id: Math.random().toString() },
     ]);
   }
 
@@ -35,13 +37,28 @@ export default function Cover() {
         <Button title="Add Goal" onPress={addGoalHandler} />
       </View>
       <View style={styles.goalsContainer}>
-        <ScrollView>
+        {/* <ScrollView>
           {courseGoals.map((goal, index) => (
             <View style={styles.goalItem} key={index}>
               <Text style={styles.textColor}>{goal}</Text>
             </View>
           ))}
-        </ScrollView>
+        </ScrollView> */}
+{/* YOU USE THE FLATLIST WHEN YOU HAVE TO OUTPUT DYNAMIC AND LIST LONG DATA */}
+        <FlatList
+          data={courseGoals}
+          renderItem={(itemData) => {
+            return (
+              <View style={styles.goalItem}>
+                <Text style={styles.textColor}>{itemData.item.text}</Text>
+              </View>
+            );
+          }}
+          keyExtractor={(item, index) => {
+            return item.id;
+          }}
+          alwaysBounceVertical={false}
+        ></FlatList>
       </View>
     </View>
   );

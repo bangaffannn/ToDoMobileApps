@@ -7,7 +7,7 @@ import {
   Button,
   TextInput,
 } from "react-native";
-import Cover from "./test/src/Cover";
+import Cover from "./Cover";
 
 export default function App() {
   return <Cover />;

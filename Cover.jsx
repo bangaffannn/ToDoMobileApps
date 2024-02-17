@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import GoalItem from "./components/GoalItem.jsx";
 import {
   View,
   StyleSheet,
@@ -49,9 +50,7 @@ export default function Cover() {
           data={courseGoals}
           renderItem={(itemData) => {
             return (
-              <View style={styles.goalItem}>
-                <Text style={styles.textColor}>{itemData.item.text}</Text>
-              </View>
+              <GoalItem text={itemData.item.text} />
             );
           }}
           keyExtractor={(item, index) => {
@@ -88,14 +87,5 @@ const styles = StyleSheet.create({
   },
   goalsContainer: {
     flex: 3, // Adjusted flex value to fill the remaining space
-  },
-  goalItem: {
-    margin: 8,
-    padding: 8,
-    borderRadius: 6,
-    backgroundColor: "#5e0acc",
-  },
-  textColor: {
-    color: "white",
   },
 });
